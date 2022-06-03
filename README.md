@@ -5,6 +5,11 @@
 df = df.fillna(df['칼럼명'].mean()) # mean, median, min, max 등
 ```
 
+### 결측치 제거
+```python
+df = df.dropna(subset=['칼럼명'])
+```
+
 ### Pandas DataFrame 정렬
 ```python
 df = df.sort_values('칼럼명', ascending=True) # 내림차순: ascending=False
