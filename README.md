@@ -4,3 +4,8 @@
 ```python
 a = a.fillna(a[칼럼명].mean()) # mean, median, min, max 등
 ```
+
+### Pandas DataFrame 정렬
+```python
+df = df.sort_values('칼럼명', ascending=True) # 내림차순: ascending=False
+```
