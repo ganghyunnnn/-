@@ -7,7 +7,7 @@ df = df.fillna(df['칼럼명'].mean()) # mean, median, min, max 등
 
 ### 결측치 제거
 ```python
-df = df.dropna(subset=['칼럼명'])
+df = df.dropna(subset=['칼럼명']) # axis=0 or 1 -> 결측치가 있는 row, col을 drop
 ```
 
 ### Pandas DataFrame 정렬
