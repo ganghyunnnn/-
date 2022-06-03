@@ -16,4 +16,4 @@ df = df.drop(['칼럼명'], axis=1)
 ```
 
 note:
-T1-19 시계열 데이터3 Expected Question 다시
+T1-19 시계열 데이터3 Expected Question 다시 
