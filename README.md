@@ -1,8 +1,17 @@
 # **빅데이터분석기사 실기 연습**
 
+
+### 결측치 확인
+```python
+print(df.isnull().sum())
+```
+
 ### 결측치 채우기
 ```python
 df = df.fillna(df['칼럼명'].mean()) # mean, median, min, max 등
+
+# 뒤에 나오는 값으로 채우기
+df = df.fillna(method='bfill') # 앞에 값으로 채우기 method=ffill
 ```
 
 ### 결측치 제거
@@ -34,6 +43,12 @@ IQR = Q3 - Q1
 # 이상치
 x < Q1 - 1.5 * IQR
 x > Q3 + 1.5 * IQR
+```
+
+### 왜도, 첨도 (skewness, kurtosis)
+```python
+skew = df['칼럼명'].skew() # 왜도
+kurt = df['칼럼명'].kurt() # 첨도
 ```
 
 
