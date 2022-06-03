@@ -20,5 +20,23 @@ df = df.sort_values('칼럼명', ascending=True) # 내림차순: ascending=False
 df = df.drop(['칼럼명'], axis=1)
 ```
 
+### Min-Max Scale
+```python
+from sklearn.preprocessing import minmax_scale
+df['칼럼명'] = minmax_scale(data['칼럼명'])
+```
+
+### IQR 구하기 (Q1, Q3)
+```python
+Q1 = df['칼럼명'].quantile(25)
+Q3 = df['칼럼명'].quantile(75)
+IQR = Q3 - Q1
+# 이상치
+x < Q1 - 1.5 * IQR
+x > Q3 + 1.5 * IQR
+```
+
+
+
 note:
 T1-19 시계열 데이터3 Expected Question 다시 풀기
