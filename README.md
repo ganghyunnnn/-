@@ -2,7 +2,7 @@
 
 ### 결측치 채우기
 ```python
-a = a.fillna(a['칼럼명'].mean()) # mean, median, min, max 등
+df = df.fillna(df['칼럼명'].mean()) # mean, median, min, max 등
 ```
 
 ### Pandas DataFrame 정렬
