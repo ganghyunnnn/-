@@ -1,5 +1,7 @@
 # **빅데이터분석기사 실기 연습**
 
+모든 문제 출처 : https://www.kaggle.com/datasets/agileteam/bigdatacertificationkr
+
 
 - ### 결측치 확인
 ```python
