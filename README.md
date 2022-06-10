@@ -53,7 +53,43 @@ skew = df['칼럼명'].skew() # 왜도
 kurt = df['칼럼명'].kurt() # 첨도
 ```
 
+- ### Label Encoding (문자열 자료를 숫자로 바꿀때 활용 가능)
+```python
+from sklearn.preprocessing import LabelEncoder
 
+le = LabelEncoder()
+cols = ['칼럼명1', '칼럼명2'] # 변경할 문자열 칼럼 명
+
+for col in cols:
+  X_train[col] = le.fit_transform(X_train[col])
+  X_test[col] = le.fit_transform(X_test[col])
+```
+
+- ### Random Forest
+```python
+# 분류(Classifier)
+from sklearn.ensemble import RandomForestClassifier
+
+model = RandomForestClassifier(random_state=10)
+# Hyperparameter
+1. n_estimators : Tree 개수 (default=100)
+2. max_depth : 최대 깊이 (default=None)
+3. randoma_state : 지정해줘야 매번 같은 결과 도출
+
+model.fit(X_train, y_train['칼럼명']) # y_train에 id가 존재하는 경우 해당 칼럼을 학습 데이터에 넣지 않기 위해 칼럼 지정
+print(model.score(X_train, y_train['칼럼명']))
+
+pred = model.predict_proba(X_test)
+
+# 회귀(Regressor)
+from sklearn.ensemble import RandomForestRegressor
+
+model = RandomForestRegressor(random_state=10)
+model.fit(X_train, y_train['칼럼명'])
+print(model.score(X_train, y_train['칼럼명']))
+
+pred = model.predict_proba(X_test)
+```
 
 note:
 T1-19 시계열 데이터3 Expected Question 다시 풀기
