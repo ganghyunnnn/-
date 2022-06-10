@@ -53,6 +53,22 @@ skew = df['칼럼명'].skew() # 왜도
 kurt = df['칼럼명'].kurt() # 첨도
 ```
 
+
+note:
+T1-19 시계열 데이터3 Expected Question 다시 풀기
+
+
+## **2유형**
+```python
+# 라이브러리
+# 데이터 불러오기
+# EDA
+# 데이터 전처리
+# 피처 엔지니어링
+# 모델링, 하이퍼파라미터 튜닝, 앙상블
+# csv 
+```
+
 - ### Label Encoding (문자열 자료를 숫자로 바꿀때 활용 가능)
 ```python
 from sklearn.preprocessing import LabelEncoder
@@ -89,19 +105,4 @@ model.fit(X_train, y_train['칼럼명'])
 print(model.score(X_train, y_train['칼럼명']))
 
 pred = model.predict_proba(X_test)
-```
-
-note:
-T1-19 시계열 데이터3 Expected Question 다시 풀기
-
-
-## **2유형**
-```python
-# 라이브러리
-# 데이터 불러오기
-# EDA
-# 데이터 전처리
-# 피처 엔지니어링
-# 모델링, 하이퍼파라미터 튜닝, 앙상블
-# csv 
 ```
