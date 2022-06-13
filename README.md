@@ -37,10 +37,25 @@ from sklearn.preprocessing import minmax_scale
 df['칼럼명'] = minmax_scale(data['칼럼명'])
 ```
 
+- ### log1p 스케일링
+```python
+import numpy as np
+df['칼럼명'] = np.log1p(df['칼럼명'])
+# x가 0이면 y가 -inf로 수렴하기 때문에 모든 값에 +1을 한 후 log 변환을 하는 log1p 사용
+```
+
 - ### IQR 구하기 (Q1, Q3)
 ```python
+# 방법1
+import pandas as pd
 Q1 = df['칼럼명'].quantile(25)
 Q3 = df['칼럼명'].quantile(75)
+
+# 방법2
+import numpy as np
+Q1 = np.percentile(df['칼럼명'], 25)
+Q3 = np.percentile(df['칼럼명'], 75)
+
 IQR = Q3 - Q1
 # 이상치
 x < Q1 - 1.5 * IQR
