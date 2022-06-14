@@ -68,6 +68,17 @@ skew = df['칼럼명'].skew() # 왜도
 kurt = df['칼럼명'].kurt() # 첨도
 ```
 
+- ### datetime으로 type 변경 및 연, 월, 일, 요일 추출
+```python
+import pandas as pd
+df['Date'] = pd.to_datetime(df['Date'])
+
+df['year'] = df['Date'].dt.year
+df['month'] = df['Date'].dt.month
+df['day'] = df['Date'].dt.day
+df['dayofweek'] = df['Date'].dt.dayofweek # Monday=0 ~ Sunday=6
+```
+
 
 note:
 T1-19 시계열 데이터3 Expected Question 다시 풀기
