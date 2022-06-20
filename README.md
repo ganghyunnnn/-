@@ -108,6 +108,13 @@ for col in cols:
   X_test[col] = le.fit_transform(X_test[col])
 ```
 
+- ### 데이터 세트 분리 (train_test_split)
+```python
+from sklearn.model_selection import train_test_split
+
+x_train, x_val = train_test_split(X_train, test_size=0.2, random_state=42)
+```
+
 - ### Random Forest
 ```python
 # 분류(Classifier)
