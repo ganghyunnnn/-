@@ -85,15 +85,16 @@ T1-19 시계열 데이터3 Expected Question 다시 풀기
 
 
 ## **유형 2**
-```python
-# 라이브러리
-# 데이터 불러오기
-# EDA
-# 데이터 전처리
-# 피처 엔지니어링
-# 모델링, 하이퍼파라미터 튜닝, 앙상블
-# csv 
-```
+1. EDA (크기, 칼럼, 널값 등 확인)
+2. 널값 제거
+3. 이상치 제거
+4. 라벨 인코딩
+5. train, validation split
+6. 모델 학습
+7. validation을 활용하여 평가
+8. 모델 및 하이퍼파라미터 선택
+9. 선택된 모델로 전체 train 데이터 학습
+10. predict 후 csv로 저장 (index=False)
 
 - ### Label Encoding (문자열 자료를 숫자로 바꿀때 활용 가능)
 ```python
