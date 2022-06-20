@@ -120,7 +120,7 @@ x_train, x_val = train_test_split(X_train, test_size=0.2, random_state=42)
 # 분류(Classifier)
 from sklearn.ensemble import RandomForestClassifier
 
-model = RandomForestClassifier(max_depth=4, n_estimaters=50, random_state=10)
+model = RandomForestClassifier(max_depth=4, n_estimators=50, random_state=10)
 ### Hyperparameter ###
 # 1. n_estimators : Tree 개수 (default=100)
 # 2. max_depth : 최대 깊이 (default=None)
@@ -145,7 +145,7 @@ pred = model.predict_proba(X_test)
 ```python
 from xgbooste import XGBClassifier
 
-model = XGBClassifier(n_estimaters=50, random_state=10)
+model = XGBClassifier(n_estimators=50, random_state=10)
 ### Hyperparameter ###
 # 1. n_estimators : Tree 개수 (default=100)
 # 2. max_depth : 최대 깊이 (default=None)
