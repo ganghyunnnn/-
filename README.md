@@ -85,15 +85,16 @@ T1-19 시계열 데이터3 Expected Question 다시 풀기
 
 
 ## **유형 2**
-```python
-# 라이브러리
-# 데이터 불러오기
-# EDA
-# 데이터 전처리
-# 피처 엔지니어링
-# 모델링, 하이퍼파라미터 튜닝, 앙상블
-# csv 
-```
+1. EDA (크기, 칼럼, 널값 등 확인)
+2. 널값 제거
+3. 이상치 제거
+4. 라벨 인코딩
+5. train, validation split
+6. 모델 학습
+7. validation을 활용하여 평가
+8. 모델 및 하이퍼파라미터 선택
+9. 선택된 모델로 전체 train 데이터 학습
+10. predict 후 csv로 저장 (index=False)
 
 - ### Label Encoding (문자열 자료를 숫자로 바꿀때 활용 가능)
 ```python
@@ -107,12 +108,19 @@ for col in cols:
   X_test[col] = le.fit_transform(X_test[col])
 ```
 
+- ### 데이터 세트 분리 (train_test_split)
+```python
+from sklearn.model_selection import train_test_split
+
+x_train, x_val = train_test_split(X_train, test_size=0.2, random_state=42)
+```
+
 - ### Random Forest
 ```python
 # 분류(Classifier)
 from sklearn.ensemble import RandomForestClassifier
 
-model = RandomForestClassifier(random_state=10)
+model = RandomForestClassifier(max_depth=4, n_estimators=50, random_state=10)
 ### Hyperparameter ###
 # 1. n_estimators : Tree 개수 (default=100)
 # 2. max_depth : 최대 깊이 (default=None)
@@ -121,7 +129,7 @@ model = RandomForestClassifier(random_state=10)
 model.fit(X_train, y_train['칼럼명']) # y_train에 id가 존재하는 경우 해당 칼럼을 학습 데이터에 넣지 않기 위해 칼럼 지정
 print(model.score(X_train, y_train['칼럼명']))
 
-pred = model.predict_proba(X_test)
+pred = model.predict(X_test) # predict_proba : 확률값
 
 # 회귀(Regressor)
 from sklearn.ensemble import RandomForestRegressor
@@ -131,4 +139,20 @@ model.fit(X_train, y_train['칼럼명'])
 print(model.score(X_train, y_train['칼럼명']))
 
 pred = model.predict_proba(X_test)
+```
+
+- ### XGBoost
+```python
+from xgbooste import XGBClassifier
+
+model = XGBClassifier(n_estimators=50, random_state=10)
+### Hyperparameter ###
+# 1. n_estimators : Tree 개수 (default=100)
+# 2. max_depth : 최대 깊이 (default=None)
+# 3. randoma_state : random seed
+
+model.fit(X_train, y_train['칼럼명'])
+print(model.score(X_train, y_train['칼럼명']))
+
+pred = model.predict(X_test) # predict_proba : 확률값
 ```
