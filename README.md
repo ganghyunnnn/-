@@ -112,7 +112,7 @@ for col in cols:
 # 분류(Classifier)
 from sklearn.ensemble import RandomForestClassifier
 
-model = RandomForestClassifier(random_state=10)
+model = RandomForestClassifier(max_depth=4, n_estimaters=50, random_state=10)
 ### Hyperparameter ###
 # 1. n_estimators : Tree 개수 (default=100)
 # 2. max_depth : 최대 깊이 (default=None)
@@ -121,7 +121,7 @@ model = RandomForestClassifier(random_state=10)
 model.fit(X_train, y_train['칼럼명']) # y_train에 id가 존재하는 경우 해당 칼럼을 학습 데이터에 넣지 않기 위해 칼럼 지정
 print(model.score(X_train, y_train['칼럼명']))
 
-pred = model.predict_proba(X_test)
+pred = model.predict(X_test) # predict_proba : 확률값
 
 # 회귀(Regressor)
 from sklearn.ensemble import RandomForestRegressor
@@ -131,4 +131,20 @@ model.fit(X_train, y_train['칼럼명'])
 print(model.score(X_train, y_train['칼럼명']))
 
 pred = model.predict_proba(X_test)
+```
+
+- ### XGBoost
+```python
+from xgbooste import XGBClassifier
+
+model = XGBClassifier(n_estimaters=50, random_state=10)
+### Hyperparameter ###
+# 1. n_estimators : Tree 개수 (default=100)
+# 2. max_depth : 최대 깊이 (default=None)
+# 3. randoma_state : random seed
+
+model.fit(X_train, y_train['칼럼명'])
+print(model.score(X_train, y_train['칼럼명']))
+
+pred = model.predict(X_test) # predict_proba : 확률값
 ```
